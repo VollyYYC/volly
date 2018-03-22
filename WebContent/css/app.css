@@ -1,0 +1,114 @@
+.logo-full {
+	background: url("../../img/logo-main.png") center center no-repeat;
+	width: 100vw;
+	height: 100vh;
+	z-index: 100;
+}
+
+.logo-border {
+	max-width: 600px;
+	max-height: 700px;
+	width: 30vw;
+	height: 40vh;
+	border-width: 10px;
+	border-style: solid;
+	border-radius: 25px;
+}
+
+#main-wrapper {
+	min-height: 100vh;
+	height: 100%;
+	width: 100vw;
+	width: 100vw;
+}
+
+.result-wrapper {
+	height: 368px;
+	min-width: 320px;
+	width: 30%;
+	border: 10px solid black;
+	border-radius: 50px;
+	padding: 10px 20px;
+	border: 10px solid black;
+	margin-left: 15px;
+	margin-right: 15px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: inline-block;
+}
+
+#logo-bag {
+	max-height: 107px;
+	height: 12vh;
+}
+
+#bag-wrapper {
+	display: inline-block;
+	float: left;
+}
+
+#heading-wrapper {
+	min-height: 12vh;
+	text-align: center;
+}
+
+.heading {
+	text-transform: uppercase;
+	display: inline-block;
+	color: #1f375b;
+	font-size: 1.7em;
+	font-weight: 700;
+	width: 14em;
+}
+
+.result-wrapper:after {
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	bottom: 15px;
+	right: 15px;
+	border: 10px solid black;
+}
+
+#logo-main {
+	display: inline-block;
+	max-width: 200px;
+	max-height: 107px;
+	height: 12vh;
+}
+
+#logo-wrapper {
+	text-align: right;
+	display: inline-block;
+	float: right;
+	max-width: 200px;
+	max-height: 107px;
+	height: 12vh;
+	max-height: 107px;
+}
+
+.ui-page {
+	background-color: #ffbd4a !important;
+}
+
+#carousel-wrapper {
+	overflow-x: scroll;
+	white-space: nowrap;
+}
+
+#carousel-wrapper::-webkit-scrollbar {
+	display: none;
+	overflow: -moz-scrollbars-none;
+}
+
+#scrollLeft {
+	height: 368px;
+	position: absolute;
+	left: 0;
+}
+
+#scrollRight {
+	position: absolute;
+	right: 0;
+	height: 368px;
+}

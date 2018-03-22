@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css">
+<link rel="stylesheet" type="text/css"
+	href="css/bootstrap-reboot.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="css/jquery.mobile-1.4.5.min.css">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<title>Volly APP</title>
+<script type="text/javascript">
+<!-- http://vollyapp.azurewebsites.net/api/user -->
+	var dataArray = [];
+</script>
+</head>
+<body>
+	<div id="cont-main">
+		<div id="carouselExampleControls"
+			class="cont-carousel-wrap carousel slide" data-ride="carousel">
+			<div id="cont-carousel" class="carousel-inner"></div>
+			<a class="carousel-control-prev" href="#carouselExampleControls"
+				role="button" data-slide="prev"> <span
+				class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+				class="sr-only">Previous</span>
+			</a> <a class="carousel-control-next" href="#carouselExampleControls"
+				role="button" data-slide="next"> <span
+				class="carousel-control-next-icon" aria-hidden="true"></span> <span
+				class="sr-only">Next</span>
+			</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		(function() {
+			$.ajax({
+				url : "OrgServlet",
+				timeout : 20000,
+				async : false,
+				cache : false,
+				contentType : "application/json",
+				type : 'GET',
+				success : function(response) {
+					$.each(response, function(index, org) {
+						dataArray.push(org);
+					});
+				},
+				error : function(a, b, c) {
+					alert('Service unavailable : ' + c);
+				}
+			});
+
+			$.each(dataArray, function(index, result) {
+				var divWrap = document.createElement("div");
+				if (index === 0) {
+					divWrap.className = "carousel-item div-carousel active";
+				} else {
+					divWrap.className = "carousel-item div-carousel";
+				}
+				var divHeader = document.createElement("div");
+				divHeader.className = "div-header";
+				var divImg = document.createElement("div");
+				var img = document.createElement("img");
+				img.className = "d-block logo";
+				img.src = "img/img0" + (index + 1) + ".jpg";
+				divImg.appendChild(img);
+				var divOrgName = document.createElement("div");
+				divOrgName.className = "div-name";
+				divOrgName.innerHTML = result.Name;
+				divHeader.appendChild(divImg);
+				divHeader.appendChild(divOrgName);
+				var divDesc = document.createElement("div");
+				divDesc.className = "div-desc";
+				divDesc.innerHTML = result.Description;
+				var divBody = document.createElement("div");
+				divBody.appendChild(divDesc);
+				var divFooter = document.createElement("div");
+				var buttonGo = document.createElement("button");
+				buttonGo.innerHTML = "Sign up";
+				buttonGo.className = "buttonGo";
+				var divContact = document.createElement("div");
+				divContact.innerHTML = result.ContactEmail;
+				divFooter.appendChild(divContact);
+				divFooter.appendChild(buttonGo);
+				divWrap.appendChild(divHeader);
+				divWrap.appendChild(divBody);
+				divWrap.appendChild(divFooter);
+				document.getElementById("cont-carousel").appendChild(divWrap);
+			});
+			$("#carouselExampleControls").swiperight(function() {
+				$("#carouselExampleControls").carousel('prev');
+			});
+			$("#carouselExampleControls").swipeleft(function() {
+				$("#carouselExampleControls").carousel('next');
+			});
+		})();
+	</script>
+</body>
+</html>
