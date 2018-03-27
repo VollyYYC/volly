@@ -19,14 +19,34 @@
 	min-height: 100vh;
 	height: 100%;
 	width: 100vw;
-	width: 100vw;
+}
+
+@media only screen and (max-width: 922px) {
+	[class*="result-wrapper"] {
+		width: 30%;
+	}
+}
+
+@media only screen and (min-width: 922px) {
+	[class*="result-wrapper"] {
+		width: 30%;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	[class*="result-wrapper"] {
+		width: 40%;
+	}
+}
+
+@media only screen and (max-width: 544px) {
+	[class*="result-wrapper"] {
+		width: 75%;
+	}
 }
 
 .result-wrapper {
-	height: 368px;
-	min-width: 320px;
-	width: 30%;
-	border: 10px solid black;
+	height: 100%;
 	border-radius: 50px;
 	padding: 10px 20px;
 	border: 10px solid black;
@@ -98,25 +118,32 @@
 }
 
 #carousel-wrapper {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
 	overflow-x: scroll;
 	white-space: nowrap;
+	height: 70vh;
 }
 
 #carousel-wrapper::-webkit-scrollbar {
 	display: none;
 	overflow: -moz-scrollbars-none;
 }
-
+.scroll-arrow{
+	position:relative;
+	top:50%;
+}
 #scrollLeft {
-	height: 368px;
-	position: absolute;
+	height: 70vh;
+	position: fixed;
 	left: 0;
 }
 
 #scrollRight {
-	position: absolute;
+	position: fixed;
 	right: 0;
-	height: 368px;
+	height: 70vh;
 }
 
 #div-splash {
@@ -147,6 +174,7 @@
 	-moz-transition: 3s;
 	-o-transition: 3s;
 	transition: 3s;
+	transition-property: opacity;
 }
 
 #app-container {
@@ -160,4 +188,5 @@
 	-o-transition: 3s;
 	transition: 3s;
 	opacity: 0;
+	transition-property: opacity;
 }

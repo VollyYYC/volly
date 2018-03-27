@@ -11,6 +11,9 @@ class CarouselContainer extends Component {
       results:props.results
     }
   }
+  componentDidMount(){
+    window.bindCarousel();
+  }
   render() {
     const content = this.state.results.map(
       (result,i)=>(
@@ -34,8 +37,8 @@ class CarouselContainer extends Component {
 			     <div class="heading">These charities need your help:</div>
 		    </div>
 		    <div id="carousel-wrapper">
-          <div id='scrollLeft'>&lt;</div>
-          <div id='scrollRight'>&gt;</div>
+          <div id='scrollLeft'><img class='scroll-arrow' src='img/asset/left.png' /></div>
+          <div id='scrollRight'><img class='scroll-arrow' src='img/asset/right.png' /></div>
             {content}
 		   </div>
 	    </div>
